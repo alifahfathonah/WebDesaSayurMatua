@@ -1,32 +1,30 @@
-<body class="fp-page">
-    <div class="fp-box">
-        <div class="logo">
-            <a href="javascript:void(0);">Ubah Password</b></a>
-            <small>Website Desa Sayur Matua</small>
-        </div>
-        <div class="card">
-            <div class="body">
-                <?= $this->session->flashdata('pesan'); ?>
-                <form id="forgot_password" action="<?= base_url('Auth/forget'); ?>" method="POST">
-                    <div class="msg">
-                        Kami akan mengirimkan email konfirmasi pergantian password hanya ke email yang telah terdaftar disistem kami
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">email</i>
-                        </span>
-                        <div class="form-line">
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+    <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                    <h3 class="box-title m-b-20">Recover Password</h3>
+                    <div class="form-group">
+                        <div class="col-xs-12">
                             <input type="text" class="form-control" name="Email" placeholder="Email" autofocus>
                         </div>
                         <?= form_error('email', '<label id="description-error" class="error" for="description">', '</label>'); ?>
                     </div>
-
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">RESET PASSWORD</button>
-
-                    <div class="row m-t-20 m-b--5 align-center">
-                        <a href="<?= base_url('Auth'); ?>">Login!</a>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+                        </div>
                     </div>
-                </form>
             </div>
+            <small class="text-center p-10">LOGIN</small>
+            </form>
+
         </div>
     </div>
+</section>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
