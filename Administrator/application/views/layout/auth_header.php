@@ -13,9 +13,9 @@
     <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
 
     <!-- page css -->
-    <link href="dist/css/pages/login-register-lock.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/dist/css/pages/login-register-lock.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/dist/css/style.min.css" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
