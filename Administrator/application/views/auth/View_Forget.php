@@ -18,8 +18,12 @@
                             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
                         </div>
                     </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            <a href="<?= base_url('Auth'); ?>" class="text-info m-l-5"><b>LOGIN</b></a>
+                        </div>
+                    </div>
             </div>
-            <small class="text-center p-10">LOGIN</small>
             </form>
 
         </div>
