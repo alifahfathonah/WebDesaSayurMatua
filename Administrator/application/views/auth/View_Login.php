@@ -4,21 +4,28 @@
 <section id="wrapper">
     <div class="login-register" style="background-image:url(<?= base_url(); ?>/assets/images/background/login-register.jpg);">
         <div class="login-box card">
+
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
-                    <h3 class="box-title m-b-20">Sign In</h3>
+                <form class="form-horizontal form-material" id="loginform" method="POST">
+                    <h3 class="box-title m-b-20 align-center">Selamat Datang di Halaman Admin</h3>
+                    <?= $this->session->flashdata('pesan'); ?>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Username"> </div>
+                            <input type="text" class="form-control" name="username" placeholder="Username" value="<?= set_value('username'); ?>" autofocus>
+                        </div>
+                        <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Password"> </div>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+
+                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="custom-control custom-checkbox">
-                                <a href="<?= base_url('Auth/register'); ?>" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> lupa password?</a>
+                                <a href="<?= base_url('Auth/forget'); ?>" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> lupa password?</a>
                             </div>
                         </div>
                     </div>
@@ -27,14 +34,7 @@
                             <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                            <div class="social">
-                                <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
-                                <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fa fa-google-plus"></i> </a>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
                             Sudah punya akun ? <a href="<?= base_url('Auth/register'); ?>" class="text-info m-l-5"><b>Register</b></a>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Email"> </div>
+                            <input class="form-control" type="text" placeholder="Email"> </div>
                     </div>
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
