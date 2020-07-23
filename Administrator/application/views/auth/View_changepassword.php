@@ -1,42 +1,43 @@
-<body class="fp-page">
-    <div class="fp-box">
-        <div class="logo">
-            <a href="javascript:void(0);">Ganti Password</a>
-            <small>
-            </small>
-        </div>
-        <div class="card">
-            <div class="body">
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+    <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+        <div class="login-box card">
+            <div class="card-body">
                 <?= $this->session->flashdata('pesan'); ?>
-                <form id="forgot_password" action="<?= base_url('Auth/changePassword'); ?>" method="POST">
-                    <div class="msg">
-                        <h3><?= $this->session->userdata('reset'); ?></h3>
-                        <?= $this->session->userdata('name'); ?>
-                    </div>
-
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">lock</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="password" class="form-control" name="Password1" placeholder="Password" autofocus>
+                <form class="form-horizontal form-material" id="loginform" action="<?= base_url('Auth/forget'); ?>" method="POST">
+                    <h2 class="box-title m-b-20 text-center">Reset Password</h2>
+                    <h5 class="text-center font-weight-bold"><?= $this->session->userdata('reset'); ?></h5>
+                    <p class="text-center"><?= $this->session->userdata('name'); ?></p>
+                    <div class=" form-group">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" name="Email" placeholder="Email" autofocus>
                         </div>
-                        <?= form_error('Password1', '<label id="description-error" class="error" for="description">', '</label>'); ?>
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">lock</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="password" class="form-control" name="Password2" placeholder="Konfirmasi Password">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" name="Email" placeholder="Email" autofocus>
                         </div>
-                        <?= form_error('Password2', '<label id="description-error" class="error" for="description">', '</label>'); ?>
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                     </div>
-
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">RESET PASSWORD</button>
-
-
-                </form>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+                        </div>
+                    </div>
+                    <div class="form-group m-b-0">
+                        <div class="col-sm-12 text-center">
+                            <a href="<?= base_url('Auth'); ?>" class="text-info m-l-5"><b>LOGIN</b></a>
+                        </div>
+                    </div>
             </div>
+            </form>
+
         </div>
     </div>
+</section>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
