@@ -55,21 +55,21 @@ class Auth extends CI_Controller
                     // }
                     redirect("User");
                 } else {
-                    $this->session->set_flashdata('pesan', '<div class="alert bg-red alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Password anda salah</div>');
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Password anda salah
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                                        </div>');
                     redirect('/Auth');
                 }
             } else {
-                $this->session->set_flashdata('pesan', '<div class="alert bg-red alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Akun anda belum di aktivasi</div>');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-rounded mb-3"> Akun belum diaktivasi
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                                        </div>');
                 redirect('/Auth');
             }
         } else {
-            $this->session->set_flashdata('pesan', '<div class="alert bg-red alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Akun anda tidak di temukan</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Akun tidak ditemukan
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                                        </div>');
             redirect('/Auth');
         }
     }
