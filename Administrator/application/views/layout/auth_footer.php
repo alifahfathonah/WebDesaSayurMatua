@@ -1,18 +1,27 @@
-<!-- Jquery Core Js -->
-<script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="../assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="../assets/node_modules/popper/popper.min.js"></script>
+  <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!--Custom JavaScript -->
+  <script type="text/javascript">
+      $(function() {
+          $(".preloader").fadeOut();
+      });
+      $(function() {
+          $('[data-toggle="tooltip"]').tooltip()
+      });
+      // ============================================================== 
+      // Login and Recover Password 
+      // ============================================================== 
+      $('#to-recover').on("click", function() {
+          $("#loginform").slideUp();
+          $("#recoverform").fadeIn();
+      });
+  </script>
 
-<!-- Bootstrap Core Js -->
-<script src="<?= base_url(); ?>assets/plugins/bootstrap/js/bootstrap.js"></script>
+  </body>
 
-<!-- Waves Effect Plugin Js -->
-<script src="<?= base_url(); ?>assets/plugins/node-waves/waves.js"></script>
-
-<!-- Validation Plugin Js -->
-<script src="<?= base_url(); ?>assets/plugins/jquery-validation/jquery.validate.js"></script>
-
-<!-- Custom Js -->
-<script src="<?= base_url(); ?>assets/js/admin.js"></script>
-<script src="<?= base_url(); ?>assets/js/pages/examples/sign-in.js"></script>
-</body>
-
-</html>
+  </html>
