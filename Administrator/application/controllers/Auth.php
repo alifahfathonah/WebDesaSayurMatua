@@ -354,10 +354,9 @@ class Auth extends CI_Controller
 
             $this->session->unset_userdata('reset');
             $this->session->unset_userdata('name');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Sukses! Password anda telah di ganti<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
 
-            $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Sukses! Password anda telah di ganti</div>');
+
             redirect('/Auth');
         }
     }
