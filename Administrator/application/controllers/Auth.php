@@ -238,15 +238,16 @@ class Auth extends CI_Controller
                 ];
                 $this->db->insert('admin_token', $admin_token);
                 $this->_sendEmail($token, 'forget');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Password anda salah
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                                        </div>');
 
-                $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Silahkan cek email anda untuk melakukan reset password </div>');
                 redirect('Auth/forget');
             } else {
-                $this->session->set_flashdata('pesan', '<div class="alert bg-red alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Email anda tidak terdaftar atau belum aktif</div>');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3">   Email anda tidak terdaftar atau belum aktif
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                                        </div>');
+
                 redirect('Auth/forget');
             }
         }
