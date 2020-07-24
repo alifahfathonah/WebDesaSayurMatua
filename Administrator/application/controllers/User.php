@@ -73,9 +73,9 @@ class User extends CI_Controller
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('admin_image', $new_image);
                 } else {
-                    $this->session->set_flashdata('pesan', '<div class="alert bg-red alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                ' . $this->upload->display_errors() . '                        </div>');
+
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> ' . $this->upload->display_errors() . '
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
                     redirect('User/edit');
                     // echo $this->upload->display_errors();
 
@@ -86,10 +86,8 @@ class User extends CI_Controller
             $this->db->where('admin_user', $username);
             $this->db->update('tb_admin');
             // var_dump($result);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                                            <h3 class="text-success"><i class="fa fa-check-circle"></i> Berhasil</h3> Data anda sudah diubah oleh sistem
-                                        </div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Berhasil!!! Data anda sudah diubah oleh sistem
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
             redirect('User');
         }
     }
@@ -132,27 +130,22 @@ class User extends CI_Controller
             $newpassword = $this->input->post("NewPassword");
 
             if (!password_verify($nowpassword, $data['admin']['admin_password'])) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                                            <h3 class="text-danger"><i class="fa fa-exclamation-circle"></i> Gagal</h3> Password lama anda tidak cocok
-                                        </div>');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Gagal!!! Password lama anda tidak cocok
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
                 redirect('User/changePassword');
             } else {
                 if ($nowpassword == $newpassword) {
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-warning">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                                            <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Peringatan</h3> Password anda sama dengan password lama
-                                        </div>');
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-rounded mb-3"> Password anda sama dengan password lama
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
                     redirect('User/changePassword');
                 } else {
                     $pass_hash = password_hash($newpassword, PASSWORD_DEFAULT);
                     $this->db->set('admin_password', $pass_hash);
                     $this->db->where('admin_user', $this->dataadmin()['admin_user']);
                     $this->db->update('tb_admin');
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-success">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                                            <h3 class="text-success"><i class="fa fa-check-circle"></i> Sukses</h3> Password anda telah diganti.
-                                        </div>');
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Password anda telah diganti
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+
                     redirect('User');
                 }
             }

@@ -116,9 +116,8 @@ class Kepdes extends CI_Controller
         $this->session->unset_userdata("nama_admin");
         $this->session->unset_userdata("role_id");
 
-        $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Anda telah logout</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Anda telah logout
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
         redirect('/Auth');
     }
 }

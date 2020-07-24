@@ -46,9 +46,8 @@ class Pekerjaan extends CI_Controller
             $this->load->view('layout/Footer');
         } else {
             $this->Pekerjaan_model->insert();
-            $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Berhasil!!!Anda telah menambahkan daftar pekerjaan </div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! Anda telah menambahkan daftar pekerjaan
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
             redirect('Pekerjaan');
         }
     }
@@ -62,19 +61,16 @@ class Pekerjaan extends CI_Controller
             redirect('Pekerjaan');
         } else {
             $this->Pekerjaan_model->update($this->input->post("idPekerjaan_edit", true));
-            $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            Berhasil!!! Anda telah mengubah daftar pekerjaan </div>');
-            redirect('Pekerjaan');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! Anda telah mengubah daftar pekerjaan
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
         }
     }
 
     public function delete($id)
     {
         $this->Pekerjaan_model->delete($id);
-        $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            Berhasil!!! data pekerjaan anda telah dihapus </div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">   Berhasil!!! data pekerjaan anda telah dihapus
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
         redirect('Pekerjaan');
     }
 }

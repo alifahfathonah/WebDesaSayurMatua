@@ -51,14 +51,6 @@ class Admin extends CI_Controller
 
     public function roleAccess($role_id)
     {
-        // $this->db->where('id !=', 1);
-        // $data = array(
-        //     'role' => $this->db->get_where('admin_role', ['role_id' => $role_id])->row_array(),
-        //     'admin' => $this->dataadmin(),
-        //     'menu' => $this->db->get('admin_menu')->result_array(),
-        //     'judul' => 'Role Access '
-        // );
-
         $data['judul'] = 'Role Access';
         $data['admin'] = $this->dataadmin();
 
@@ -91,9 +83,9 @@ class Admin extends CI_Controller
         } else {
             $this->db->delete('admin_access_menu', $data);
         }
-        $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Akses telah di ubah </div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> 
+           Akses telah diubah                     
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
     }
 
     public function listwarga()
