@@ -274,7 +274,7 @@ class Auth extends CI_Controller
 
 
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">   Akun aktifasi  Anda telah logout
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
         redirect('/Auth');
     }
 
