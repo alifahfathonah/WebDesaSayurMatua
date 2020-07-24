@@ -126,7 +126,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('tmptlahir', 'Tempat Lahir', 'required');
         $this->form_validation->set_rules('tgllahir', 'Tangga Lahir', 'required');
         $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
-        $this->form_validation->set_rules('Pendidikan', 'Pendidikan', 'required');
+        $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
 
         $data = array(
             'admin' => $this->dataadmin(),
@@ -144,7 +144,7 @@ class Admin extends CI_Controller
             $this->load->view('layout/Footer');
         } else {
             $this->Warga_model->insert();
-            redirect('Home');
+            redirect('Admin/listwarga');
         }
     }
 

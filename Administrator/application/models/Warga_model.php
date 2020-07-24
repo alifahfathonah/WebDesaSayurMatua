@@ -19,9 +19,8 @@ class Warga_model extends CI_Model
             'TglLahir' =>   $this->input->post("tgllahir", true),
             'Agama' =>   $this->input->post("agama", true),
             'Pekerjaan' =>   $this->input->post("pekerjaan", true),
-            'PendidikanTerakhir' =>   $this->input->post("Pendidikan", true),
-
-
+            'PendidikanTerakhir' =>   $this->input->post("pendidikan", true),
+            'Status' =>   'Hidup',
         ];
 
         $this->db->insert('warga', $data);
