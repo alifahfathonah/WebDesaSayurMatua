@@ -16,7 +16,8 @@
          <!-- Sidebar navigation-->
          <nav class="sidebar-nav">
              <ul id="sidebarnav">
-                 <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="<?= base_url(); ?>assets/images/profile/<?= $admin['admin_image']; ?>" alt="user-img" class="img-circle"><span class="hide-menu"><?= $admin['admin_nama']; ?></span></a>
+                 <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="<?= base_url(); ?>assets/images/profile/<?= $admin['admin_image']; ?>" alt="user-img" class="img-circle"><span class="hide-menu">Mark Jeckson</span></a>
+
                      <ul aria-expanded="false" class="collapse">
                          <li><a href="<?= base_url('User'); ?>"><i class=" ti-user"></i> My Profile</a></li>
                          <li><a href="<?= base_url('Auth/logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
