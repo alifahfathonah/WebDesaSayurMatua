@@ -1,35 +1,34 @@
-<section class="content">
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>
-                JQUERY DATATABLES
-                <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
-            </h2>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">Data Penduduk</h4>
+            </div>
+            <div class="col-md-7 align-self-center text-right">
+                <div class="d-flex justify-content-end align-items-center">
+                    <a href="<?= base_url('Admin/tambah'); ?>"> <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Tambah Data</button></a>
+                </div>
+            </div>
         </div>
-        <!-- Basic Examples -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>
-                            BASIC EXAMPLE
-                        </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Penduduk</h4>
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -77,21 +76,15 @@
                                             <td><?= $value->Pekerjaan; ?></td>
                                             <td><?= $value->PendidikanTerakhir; ?></td>
                                             <td>
-                                                <button type="button" class="btn bg-light-blue btn-circle waves-effect waves-circle waves-float">
-                                                    <a href="#">
-                                                        <i class="material-icons">edit</i>
-                                                    </a>
-                                                </button>
-
-                                                <button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
-                                                    <a href="#">
-                                                        <i class="material-icons">delete</i>
-                                                    </a>
-                                                </button>
+                                                <a href="#">
+                                                    <button type="button" class="btn btn-info btn-circle"><i class="fa fa-edit" alt="EDIT"></i></button>
+                                                </a>
+                                                <a href="#">
+                                                    <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php } ?>
-
                                 </tbody>
                             </table>
                         </div>
@@ -99,5 +92,10 @@
                 </div>
             </div>
         </div>
-</section>
-<!-- #END# Basic Examples -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
