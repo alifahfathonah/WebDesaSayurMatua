@@ -119,10 +119,10 @@ function inputtext($name, $table, $field, $primary_key, $selected)
 }
 
 // Fungsi untuk menampilkan data dalam bentuk combobox
-function combobox($name, $table, $field, $primary_key, $selected)
+function combobox($name, $id, $table, $field, $primary_key, $selected)
 {
     $ci = get_instance();
-    $cmb = "<select name='$name' class='form-control show-tick'>";
+    $cmb = "<select name='$name' id='$id' class='custom-select col-6'>";
     $data = $ci->db->get($table)->result();
     $cmb .= "<option value=''>-- PILIH --</option>";
     foreach ($data as $d) {
