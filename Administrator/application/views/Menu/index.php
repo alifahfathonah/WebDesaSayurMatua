@@ -22,11 +22,15 @@
         <!-- ============================================================== -->
 
         <div class="row">
+
             <div class="col-12">
+                <?= $this->session->flashdata("pesan"); ?>
+                <?= form_error("menu", "<div class='alert alert-warning alert-rounded mb-3'>", "
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>×</span> </button></div>
+                <div class='card'>"); ?>
+
+
                 <div class="card">
-                    <?= $this->session->flashdata("pesan"); ?>
-                    <?= form_error("menu", "<div class='alert bg-orange alert-dismissible' role='alert'>
-                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button>", "</div>"); ?>
                     <div class="card-body">
                         <h4 class="card-title">Daftar Role</h4>
                         <div class="table-responsive">
@@ -62,29 +66,29 @@
                 </div>
             </div>
         </div>
+    </div>
 
-
-        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="defaultModalLabel">Form Tambah Menu</h4>
-                    </div>
-                    <form method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" name="menu" class="form-control" placeholder="Masukan nama menu" value="<?= set_value('menu'); ?>">
-
-                                </div>
-                                <?= form_error('menu', '<label id="description-error" class="error" for="description">', '</label>'); ?>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary waves-effect">Tambah</button>
-                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
-                    </form>
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Form Tambah Menu</h4>
                 </div>
+                <form method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="menu" class="form-control" placeholder="Masukan nama menu" value="<?= set_value('menu'); ?>">
+
+                            </div>
+                            <?= form_error('menu', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary waves-effect">Tambah</button>
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>

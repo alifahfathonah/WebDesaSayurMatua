@@ -35,7 +35,7 @@ class Menu extends CI_Controller
         } else {
             $this->db->insert('admin_menu', ['menu' => $this->input->post('menu')]);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">   Menu berhasil ditambahkan!
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             redirect('Menu');
         }
     }
@@ -58,19 +58,24 @@ class Menu extends CI_Controller
             $this->load->view('Menu/submenu', $data);
             $this->load->view('layout/Footer');
         } else {
+            $active = 1;
+            if ($this->input->post('is_active') != null) {
+                $active = 1;
+            } else {
+                $active = 0;
+            }
+            // die();
             $data = [
                 'title' => $this->input->post('judul'),
                 'menu_id' => $this->input->post('menu_id'),
                 'url' => $this->input->post('url'),
                 'icon' => $this->input->post('icon'),
-                'is_active' => $this->input->post('is_active')
+                'is_active' => $active
             ];
             $this->db->insert('admin_sub_menu', $data);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Sub Menu berhasil ditambahkan!
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
-            $this->session->set_flashdata('pesan', '<div class="alert bg-green alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                Sub Menu berhasil ditambahkan! </div>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+
             redirect('Menu/submenu');
         }
     }
