@@ -80,10 +80,16 @@ class Auth extends CI_Controller
     {
 
         // $data['']
+        $admin = $this->db->get_where('tb_admin', ['admin_user' => $this->session->userdata('username')])->row_array();
         $email = $this->input->post('Email', true);
-        if ($this->session->userdata("username")) {
-            redirect('User');
-        }
+        $data = array(
+            'admin' => $admin,
+            'judul' => 'Tambah Admin'
+
+        );
+        // if ($this->session->userdata("username")) {
+        //     redirect('User');
+        // }
         $this->form_validation->set_rules('Nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('Username', 'Username', 'required|trim|is_unique[tb_admin.admin_user]', [
             'is_unique' => 'Username ini telah terdaftar'
@@ -102,8 +108,8 @@ class Auth extends CI_Controller
         );
         $this->form_validation->set_rules('Password2', 'Password', 'required|trim|matches[Password]');
         if ($this->form_validation->run() == false) {
-            $data['judul'] = "Form Registerasi";
             $this->load->view("layout/header", $data);
+            $this->load->view('layout/Sidebar', $data);
             $this->load->view("auth/View_Registrasi");
             $this->load->view("layout/footer");
         } else {
@@ -165,10 +171,12 @@ class Auth extends CI_Controller
         if ($tipe == 'verify') {
 
             $this->email->subject('Verifikasi Akun');
-            $this->email->message('Klik link berikut untuk verifikasi akun : <a href="' . base_url() . 'Auth/verify?email=' . $this->input->post('Email') . '&token=' . urlencode($token) . '">Aktif</a>');
+            $data['link'] = base_url() . 'Auth/verify?email=' . $this->input->post('Email') . '&token=' . urlencode($token);
+            $this->email->message($this->load->view('emailaktif', $data, true));
         } else {
             $this->email->subject('Reset Password Akun');
-            $this->email->message('Klik link berikut untuk reset password akun : <a href="' . base_url() . 'Auth/resetpassword?email=' . $this->input->post('Email') . '&token=' . urlencode($token) . '">Reset Password</a>');
+            $data['link'] = base_url() . 'Auth/resetpassword?email=' . $this->input->post('Email') . '&token=' . urlencode($token);
+            $this->email->message($this->load->view('emailforget', $data, true));
         }
 
         if ($this->email->send()) {
@@ -354,7 +362,7 @@ class Auth extends CI_Controller
 
             $this->session->unset_userdata('reset');
             $this->session->unset_userdata('name');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Sukses! Password anda telah di ganti<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Sukses! Password anda telah di ganti<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
 
 
             redirect('/Auth');

@@ -35,10 +35,8 @@ class User extends CI_Controller
     public function edit()
     {
         $data = array(
-
             'admin' => $this->dataadmin(),
             'judul' => 'Edit Profile'
-
         );
 
         $this->form_validation->set_rules('name', 'Nama', 'required|trim');
@@ -51,9 +49,6 @@ class User extends CI_Controller
         } else {
             $username = $this->input->post("username");
             $name = $this->input->post("name");
-
-
-
             //gambar upload
             $upload_image = $_FILES['image']['name'];
             // var_dump($upload_image);
@@ -62,6 +57,7 @@ class User extends CI_Controller
                 $config['upload_path'] = './assets/images/profile/';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size']     = '2048';
+                $config['file_name'] = $this->dataadmin()['admin_id'] . "_" . $username . "_imgprofile";
 
                 $this->load->library('upload', $config);
 
@@ -73,12 +69,9 @@ class User extends CI_Controller
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('admin_image', $new_image);
                 } else {
-
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> ' . $this->upload->display_errors() . '
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
                     redirect('User/edit');
-                    // echo $this->upload->display_errors();
-
                 }
             }
 
@@ -86,8 +79,8 @@ class User extends CI_Controller
             $this->db->where('admin_user', $username);
             $this->db->update('tb_admin');
             // var_dump($result);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Berhasil!!! Data anda sudah diubah oleh sistem
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Berhasil!!! Data anda sudah diubah oleh sistem
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             redirect('User');
         }
     }
@@ -102,11 +95,11 @@ class User extends CI_Controller
         );
         $this->form_validation->set_rules(
             'NewPassword',
-            'Password baru',
+            'Password',
             'required|trim|min_length[3]|matches[NewPasswordConfirm]',
             [
                 'matches' => 'Password tidak sama',
-                'min_length' => 'Password harus 3 Karakter'
+                'min_length' => 'Password harus lebih dari 3 Karakter'
             ]
         );
         $this->form_validation->set_rules(
@@ -131,12 +124,12 @@ class User extends CI_Controller
 
             if (!password_verify($nowpassword, $data['admin']['admin_password'])) {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Gagal!!! Password lama anda tidak cocok
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
                 redirect('User/changePassword');
             } else {
                 if ($nowpassword == $newpassword) {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-rounded mb-3"> Password anda sama dengan password lama
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
                     redirect('User/changePassword');
                 } else {
                     $pass_hash = password_hash($newpassword, PASSWORD_DEFAULT);
@@ -144,7 +137,7 @@ class User extends CI_Controller
                     $this->db->where('admin_user', $this->dataadmin()['admin_user']);
                     $this->db->update('tb_admin');
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Password anda telah diganti
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>');
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
 
                     redirect('User');
                 }

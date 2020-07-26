@@ -12,11 +12,7 @@
             </div>
 
         </div>
-        <div class="row">
-            <div class="col">
-                <?= $this->session->flashdata("pesan"); ?>
-            </div>
-        </div>
+
         <!-- ============================================================== -->
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -26,6 +22,11 @@
         <!-- Row -->
         <div class="row">
             <!-- Column -->
+            <div class="col-12">
+                <?= $this->session->flashdata("pesan"); ?>
+                <?= form_error('NewPassword', '<div class="alert alert-danger alert-rounded mb-3">', '
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>'); ?>
+            </div>
             <div class="col-lg-4 col-xlg-3 col-md-5">
                 <div class="card">
                     <div class="card-body">

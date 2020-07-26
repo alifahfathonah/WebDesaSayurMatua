@@ -8,7 +8,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Datatable</h4>
+                <h4 class="text-themecolor">Daftar Penduduk</h4>
             </div>
             <div class="col-md-7 align-self-center text-right">
                 <div class="d-flex justify-content-end align-items-center">
@@ -25,11 +25,11 @@
                     echo "<div class='alert alert-danger'>" . validation_errors() . "</div>";
                 }
                 ?>
-                <div class="card">
+                <div class="card border-primary">
                     <div class="card-body">
-                        <h4 class="card-title">Default Basic Forms</h4>
-                        <h6 class="card-subtitle"> All bootstrap element classies </h6>
-
+                        <h4 class="card-title">Form Data Penduduk</h4>
+                        <h6 class="card-subtitle "> Mohon data diisi dengan sebenar-benarnya</h6>
+                        <hr class="mb-4" />
                         <form class="form" method="POST">
                             <div class="form-group row">
                                 <label for="nik" class="col-2 col-form-label">NIK</label>
