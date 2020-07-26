@@ -3,7 +3,7 @@ class Warga_model extends CI_Model
 {
     public function login($username, $password)
     {
-        return $this->db->query("select * from user where nama_user='" + $username + "'
+        return $this->db->query("select * from warga where nama_user='" + $username + "'
         and password='" . $password . "'")->row();
     }
     public function insert()
@@ -38,18 +38,18 @@ class Warga_model extends CI_Model
         //parameter kedua nilai nya
         $this->db->where('id_user', $id);
 
-        $this->db->delete('user'); //nama tabel
+        $this->db->delete('warga'); //nama tabel
     }
 
-    public function select_by_id($id)
+    public function select_by_id($NIK)
     {
-        $this->db->where('id_user', $id);
-        return $this->db->get('user')->row();
+        $this->db->where('NIK', $NIK);
+        return $this->db->get('warga')->row();
     }
 
-    public function update_user($data, $id)
+    public function update_user($data, $NIK)
     {
-        $this->db->where('id_user', $id);
-        $this->db->update('user', $data);
+        $this->db->where('NIK', $NIK);
+        $this->db->update('warga', $data);
     }
 }

@@ -167,8 +167,20 @@ class Admin extends CI_Controller
 
     public function edit($id)
     {
-        $user = $this->Warga_model->select_by_id($id);
-        $data = array('user' => $user,);
-        $this->load->view('Admin/View_create', $data);
+        $pekerjaan = array('TIDAK TAMAT', 'SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'D1', 'D3', 'S1/SEDERAJAT', 'S2/SEDERJAT', 'S3');
+        $warga = $this->Warga_model->select_by_id($id);
+        $data = array(
+            'admin' => $this->dataadmin(),
+            'judul' => 'Edit Data Penduduk',
+            'warga' => $warga,
+            'job' => $pekerjaan
+
+        );
+
+        $this->load->view('layout/Header', $data);
+        //menampilkan halaman Sidebar.php pada folder view > View
+        $this->load->view('layout/Sidebar', $data);
+        $this->load->view('Warga/View_editwarga', $data);
+        $this->load->view('layout/Footer');
     }
 }

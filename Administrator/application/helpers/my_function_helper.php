@@ -105,20 +105,23 @@ function getBulan($bln)
 }
 
 
-// Fungsi untuk melakukan input data	
-function inputtext($name, $table, $field, $primary_key, $selected)
-{
-    $ci = get_instance();
-    $data = $ci->db->get($table)->result();
-    foreach ($data as $t) {
-        if ($selected == $t->$primary_key) {
-            $txt = $t->$field;
-        }
-    }
-    return $txt;
-}
+
 
 // Fungsi untuk menampilkan data dalam bentuk combobox
+function comboboxmanual($name, $id, $value, $isi, $selected)
+{
+    $ci = get_instance();
+    $cmb = "<select name='$name' id='$id' class='custom-select col-6'>";
+    $cmb .= "<option value=''>-- PILIH --</option>";
+    foreach ($value as $d) {
+        $cmb .= "<option value='" . $d . "'";
+        $cmb .= $selected == $d ? "selected='selected'" : '';
+        $cmb .= ">" . strtoupper($d) . "</option>";
+    }
+    $cmb .= "</select>";
+    return $cmb;
+}
+
 function combobox($name, $id, $table, $field, $primary_key, $selected)
 {
     $ci = get_instance();
@@ -132,60 +135,4 @@ function combobox($name, $id, $table, $field, $primary_key, $selected)
     }
     $cmb .= "</select>";
     return $cmb;
-}
-
-// Fungsi untuk mengkonversi nilai angka kedalam bentuk abjad
-function skorNilai($nilai, $sks)
-{
-    if ($nilai == 'A') $skor = 4 * $sks;
-    else if ($nilai == 'B') $skor = 3 * $sks;
-    else if ($nilai == 'C') $skor = 2 * $sks;
-    else if ($nilai == 'D') $skor = 1 * $sks;
-    else $skor = 0;
-    return $skor;
-}
-
-// Fungsi untuk melakukan cek nilai 
-function cekNilai($nim, $kode, $nilKhs)
-{
-    $ci = get_instance();
-    $ci->load->model('Transkrip_model');
-
-    $ci->db->select('*');
-    $ci->db->from('transkrip');
-    $ci->db->where('nim', $nim);
-    $ci->db->where('kode_matakuliah', $kode);
-    $query = $ci->db->get()->row();
-    // Jika nilai tidak kosong atau isi
-    if ($query != null) {
-        // Membandingkan jika terdapat nilai sebelumnya di matakuliah yang sama
-        // jika nilai yang diinputkan lebih besar dari nilai sebelumnya
-        // secara otomatis nilai lama yg lebih kecil akan diganti dengan nilai yang lebih besar
-        if ($nilKhs < $query->nilai) {
-            $ci->db->set('nilai', $nilKhs)
-                ->where('nim', $nim)
-                ->where('kode_matakuliah', $kode)
-                ->update('transkrip');
-        }
-    }
-    // Jika nilai belum ada maka tambahkan nilai baru
-    else {
-        $data = array(
-            'nim' => $nim,
-            'nilai' => $nilKhs,
-            'kode_matakuliah' => $kode
-        );
-        $ci->Transkrip_model->insert($data);
-    }
-}
-//fungsi SEO
-function seo_title($s)
-{
-    $c = array(' ');
-    $d = array('-', '/', '\\', ',', '.', '#', ':', ';', '\'', '"', '[', ']', '{', '}', ')', '(', '|', '`', '~', '!', '@', '%', '$', '^', '&', '*', '=', '?', '+');
-
-    $s = str_replace($d, '', $s); // Hilangkan karakter yang telah disebutkan di array $d
-
-    $s = strtolower(str_replace($c, '-', $s)); // Ganti spasi dengan tanda - dan ubah hurufnya menjadi kecil semua
-    return $s;
 }

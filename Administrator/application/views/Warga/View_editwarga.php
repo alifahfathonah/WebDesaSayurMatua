@@ -8,7 +8,7 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h4 class="text-themecolor">Daftar Penduduk</h4>
+                <h4 class="text-themecolor">Edit Data Penduduk</h4>
             </div>
             <div class="col-md-7 align-self-center text-right">
                 <div class="d-flex justify-content-end align-items-center">
@@ -27,26 +27,32 @@
                 ?>
                 <div class="card border-primary">
                     <div class="card-body">
-                        <h4 class="card-title">Form Data Penduduk</h4>
+                        <h4 class="card-title">Form Edit Data Penduduk</h4>
                         <h6 class="card-subtitle "> Mohon data diisi dengan sebenar-benarnya</h6>
                         <hr class="mb-4" />
                         <form class="form" method="POST">
                             <div class="form-group row">
                                 <label for="nik" class="col-2 col-form-label">NIK</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" placeholder="Masukan NIK anda" name="nik" id="nik">
+                                    <input type="text" class="form-control" placeholder="Masukan NIK anda" name="nik" id="nik" value="<?php if (isset($warga->NIK)) {
+                                                                                                                                            echo $warga->NIK;
+                                                                                                                                        } ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="nkk" class="col-2 col-form-label">NKK</label>
                                 <div class="col-10">
-                                    <input type="text" id="nkk" class="form-control" placeholder="Masukan Nomor Kartu Keluarga (NKK) anda" name="nkk">
+                                    <input type="text" id="nkk" class="form-control" placeholder="Masukan Nomor Kartu Keluarga (NKK) anda" name="nkk" value="<?php if (isset($warga->NKK)) {
+                                                                                                                                                                    echo $warga->NKK;
+                                                                                                                                                                } ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="nama" class="col-2 col-form-label">Nama</label>
                                 <div class="col-10">
-                                    <input type="text" id="nama" class="form-control" placeholder="Masukan lengkap anda" name="nama">
+                                    <input type="text" id="nama" class="form-control" placeholder="Masukan lengkap anda" name="nama" value="<?php if (isset($warga->NKK)) {
+                                                                                                                                                echo $warga->Nama;
+                                                                                                                                            } ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -54,14 +60,21 @@
                                 <div class="col-sm">
                                     <div class="row">
                                         <div class="col-2">
+
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="laki" name="gender" class="custom-control-input" value="L">
+                                                <input type="radio" id="laki" name="gender" class="custom-control-input" value="L" <?php
+                                                                                                                                    if ($warga->Sex == "L") {
+                                                                                                                                        echo "checked";
+                                                                                                                                    } ?>>
                                                 <label class="custom-control-label" for="laki">Laki-laki</label>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="perempuan" name="gender" class="custom-control-input" value="P">
+                                                <input type="radio" id="perempuan" name="gender" class="custom-control-input" value="P" <?php
+                                                                                                                                        if ($warga->Sex == "L") {
+                                                                                                                                            echo "checked";
+                                                                                                                                        } ?>>
                                                 <label class="custom-control-label" for="perempuan">Perempuan</label>
                                             </div>
                                         </div>
@@ -73,7 +86,7 @@
                                 <label for="agama" class="col-2 col-form-label">Agama</label>
                                 <div class="col-10">
                                     <?php
-                                    echo combobox('agama', 'agama', 'tb_agama', 'agama_nama', 'agama_id', '');
+                                    echo combobox('agama', 'agama', 'tb_agama', 'agama_nama', 'agama_id', $warga->Agama);
                                     ?>
                                 </div>
                             </div>
@@ -81,13 +94,13 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label">Alamat</label>
                                 <div class="col-10">
-                                    <textarea class="form-control" name="alamat" rows="5" id="alamat" placeholder="Masukan alamat anda..."></textarea></div>
+                                    <textarea class="form-control" name="alamat" rows="5" id="alamat" placeholder="Masukan alamat anda..." value=""><?= $warga->Alamat; ?></textarea></div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="tmptlahir" class="col-2 col-form-label">Tempat lahir</label>
                                 <div class="col-2">
-                                    <input class="form-control" type="text" id="tmptlahir" name="tmptlahir" placeholder="Masukan tempat lahir anda">
+                                    <input class="form-control" type="text" id="tmptlahir" name="tmptlahir" placeholder="Masukan tempat lahir anda" value="<?= $warga->TempatLahir; ?>">
                                 </div>
                                 <label for="tgllahir" class="col-1 col-form-label">Tanggal Lahir</label>
                                 <div class="col-4">
@@ -99,16 +112,16 @@
                                 <label for="job" class="col-2 col-form-label">Pekerjaan</label>
                                 <div class="col-10">
                                     <?php
-                                    echo combobox('pekerjaan', 'job', 'tb_pekerjaan', 'pekerjaan_nama', 'pekerjaan_id', '');
+                                    echo combobox('pekerjaan', 'job', 'tb_pekerjaan', 'pekerjaan_nama', 'pekerjaan_id', $warga->Pekerjaan);
                                     ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="pendidikan" class="col-2 col-form-label">Pendidikan terakhir</label>
+                                <label for="pendidikan" class="col-2 col-form-label">Pendidikan terakhir <?= $warga->Pekerjaan; ?></label>
                                 <div class="col-10">
                                     <?php
-                                    echo comboboxmanual('pendidikan', 'pendidikan', $job, $job, 'a'); ?>
+                                    echo comboboxmanual('pendidikan', 'pendidikan', $job, $job, $warga->PendidikanTerakhir); ?>
                                 </div>
                             </div>
 
@@ -119,6 +132,9 @@
 
                             </div>
                         </form>
+
+
+
                     </div>
                 </div>
             </div>

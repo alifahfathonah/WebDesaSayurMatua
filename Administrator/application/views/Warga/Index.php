@@ -76,7 +76,7 @@
                                             <td><?= $value->Pekerjaan; ?></td>
                                             <td><?= $value->PendidikanTerakhir; ?></td>
                                             <td>
-                                                <a href="#">
+                                                <a href="<?= base_url("Admin/edit/") . $value->NIK; ?>">
                                                     <button type="button" class="btn btn-info btn-circle"><i class="fa fa-edit" alt="EDIT"></i></button>
                                                 </a>
                                                 <a href="#">
