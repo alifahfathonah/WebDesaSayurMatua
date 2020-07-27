@@ -24,11 +24,12 @@
         <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
+                <?= $this->session->flashdata('pesan'); ?>
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title"><?= $judul; ?></h4>
                         <div class="table-responsive">
-                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>

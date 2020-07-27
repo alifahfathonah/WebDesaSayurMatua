@@ -80,7 +80,7 @@
                                         <img src="<?= base_url('assets/images/profile/') . $admin['admin_image']; ?>" id="preview" class="img-thumbnail w-50">
                                     </div>
                                 </div>
-
+                                </form>
                             </div>
                         </div>
                     </div>

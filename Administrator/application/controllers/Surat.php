@@ -41,8 +41,20 @@ class Surat extends CI_Controller
     }
 
     // Tambah SURAT MASUK
-    public function DetailSuratMasuk()
+    public function DetailSuratMasuk($id)
     {
+        $detail = $this->Surat_model->select_by_id_sm($id);
+        $data = array(
+            'detail' => $detail,
+            'admin' => $this->dataadmin(),
+            'judul' => 'Detail Surat ' . $detail->suratmasuk_judul,
+
+
+        );
+        $this->load->view('layout/Header', $data);
+        $this->load->view('layout/Sidebar', $data);
+        $this->load->view('Surat/View_DetailSuratMasuk', $data);
+        $this->load->view('layout/Footer');
     }
 
 
@@ -67,6 +79,8 @@ class Surat extends CI_Controller
             $this->load->view('layout/Footer');
         } else {
             $this->Surat_model->insert_sm();
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> Berhasil!!! Data sudah ditambah
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             redirect('Surat/SuratMasuk');
         }
     }
@@ -79,7 +93,17 @@ class Surat extends CI_Controller
     // DELETE SURAT MASUK
     public function DeleteSuratMasuk($id)
     {
+        $datafile = $this->Surat_model->select_by_id_sm($id);
+        unlink(FCPATH . 'assets/Surat/SuratMasuk/' . $datafile->suratmasuk_file);
+        // die();
         $this->Surat_model->delete_sm($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-rounded mb-3"> Berhasil!!! Data telah dihapus
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
         redirect("Surat/SuratMasuk");
+    }
+
+    public function DownloadSuratMasuk($filename)
+    {
+        force_download(base_url() . 'assets/Surat/SuratMasuk/' . $filename, NULL);
     }
 }

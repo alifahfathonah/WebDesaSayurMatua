@@ -153,7 +153,7 @@
             });
 
             // Used events
-            var drEvent = $('#input-file-events').dropify();
+            var drEvent = $('#input-file-now').dropify();
 
             drEvent.on('dropify.beforeClear', function(event, element) {
                 return confirm("Do you really want to delete \"" + element.file.name + "\" ?");

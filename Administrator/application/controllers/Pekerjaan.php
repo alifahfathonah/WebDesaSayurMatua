@@ -31,14 +31,14 @@ class Pekerjaan extends CI_Controller
 
         );
 
-        $this->form_validation->set_rules(
-            'namaPekerjaan',
-            'Nama Pekerjaan',
-            'required|trim|is_unique[tb_pekerjaan.pekerjaan_nama]',
-            [
-                'is_unique' => 'Nama Pekerjaan sudah terdaftar'
-            ]
-        );
+        // $this->form_validation->set_rules(
+        //     'namaPekerjaan',
+        //     'Nama Pekerjaan',
+        //     'required|trim|is_unique[tb_pekerjaan.pekerjaan_nama]',
+        //     [
+        //         'is_unique' => 'Nama Pekerjaan sudah terdaftar'
+        //     ]
+        // );
         $this->form_validation->set_rules('idPekerjaan', 'ID Pekerjaan', 'required|trim|is_unique[tb_pekerjaan.pekerjaan_id]', [
             'is_unique' => 'ID pekerjaan sudah terdaftar'
         ]);
@@ -49,10 +49,14 @@ class Pekerjaan extends CI_Controller
             $this->load->view('Pekerjaan/index', $data);
             $this->load->view('layout/Footer');
         } else {
-            $this->Pekerjaan_model->insert();
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! Anda telah menambahkan daftar pekerjaan
+
+            if ($this->Pekerjaan_model->insert()) {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! Anda telah menambahkan daftar pekerjaan
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
-            redirect('Pekerjaan');
+                redirect('Pekerjaan');
+            } else {
+                echo "w";
+            }
         }
     }
 
