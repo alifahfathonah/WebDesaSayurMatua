@@ -16,9 +16,6 @@ class Pekerjaan extends CI_Controller
     {
 
         $dariDB = $this->Pekerjaan_model->cekkode();
-        // var_dump($dariDB);
-
-        // contoh JRD0004, angka 3 adalah awal pengambilan angka, dan 4 jumlah angka yang diambil
         $nourut = substr($dariDB->pekerjaan_id, 3, 4);
 
         $kodeBarangSekarang = $nourut + 1;

@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-7 align-self-center text-right">
                 <div class="d-flex justify-content-end align-items-center">
-                    <a href="<?= base_url('Admin/tambah'); ?>"> <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Tambah Data</button></a>
+                    <a href="<?= base_url('Surat/TambahSuratMasuk'); ?>"> <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Tambah Data</button></a>
                 </div>
             </div>
         </div>
@@ -56,16 +56,16 @@
                                             <td><?= $value->suratmasuk_no; ?></td>
                                             <td><?= $value->suratmasuk_judul; ?></td>
                                             <td><?= $value->suratmasuk_asal; ?></td>
-                                            <td><?= $value->suratmasuk_tanggal; ?></td>
+                                            <td><?= tgl_indo($value->suratmasuk_tanggal); ?></td>
 
                                             <td>
-                                                <a href="<?= base_url("Surat/detail_sm/") . $value->suratmasuk_id; ?>">
+                                                <a href="<?= base_url("Surat/DetailSuratMasuk/") . $value->suratmasuk_id; ?>">
                                                     <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-file-text-o" alt="DETAIL"></i></button>
                                                 </a>
-                                                <a href="<?= base_url("Surat/edit_sm/") . $value->suratmasuk_id; ?>">
+                                                <a href="<?= base_url("Surat/EditSuratMasuk/") . $value->suratmasuk_id; ?>">
                                                     <button type="button" class="btn btn-info btn-circle"><i class="fa fa-edit" alt="EDIT"></i></button>
                                                 </a>
-                                                <a href="<?= base_url("Surat/delete_sm/") . $value->suratmasuk_id; ?>">
+                                                <a href="<?= base_url("Surat/DeleteSuratMasuk/") . $value->suratmasuk_id; ?>">
                                                     <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>

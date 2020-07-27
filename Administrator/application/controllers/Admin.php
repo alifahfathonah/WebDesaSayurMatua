@@ -127,10 +127,11 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('tgllahir', 'Tangga Lahir', 'required');
         $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
         $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
-
+        $pekerjaan = array('TIDAK TAMAT', 'SD/SEDERAJAT', 'SMP/SEDERAJAT', 'SMA/SEDERAJAT', 'D1', 'D3', 'S1/SEDERAJAT', 'S2/SEDERJAT', 'S3');
         $data = array(
             'admin' => $this->dataadmin(),
-            'judul' => 'Tambah Data Penduduk'
+            'judul' => 'Tambah Data Penduduk',
+            'job' => $pekerjaan
 
         );
 

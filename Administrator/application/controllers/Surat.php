@@ -15,14 +15,23 @@ class Surat extends CI_Controller
         return $admin;
     }
 
+    function autokode()
+    {
+        $dariDB = $this->Surat_model->cekkode();
+        $nourut = substr($dariDB->suratmasuk_id, 3, 4);
+        $autokde = $nourut + 1;
+        return $autokde;
+    }
+
     public function SuratMasuk()
     {
 
-        $surat = $this->Surat_model->selectAll();
+        $surat = $this->Surat_model->selectAll_sm();
         $data = array(
             'surat' => $surat,
             'admin' => $this->dataadmin(),
-            'judul' => 'Daftar Surat Masuk'
+            'judul' => 'Daftar Surat Masuk',
+
 
         );
         $this->load->view('layout/Header', $data);
@@ -31,15 +40,46 @@ class Surat extends CI_Controller
         $this->load->view('layout/Footer');
     }
 
+    // Tambah SURAT MASUK
+    public function DetailSuratMasuk()
+    {
+    }
+
+
+    // Tambah SURAT MASUK
+    public function TambahSuratMasuk()
+    {
+        $data = array(
+            'admin' => $this->dataadmin(),
+            'autokode' => $this->autokode(),
+            'judul' => 'Tambah Data Surat Masuk'
+
+        );
+        $this->form_validation->set_rules('nosm', 'Nomor surat', 'required|trim');
+        $this->form_validation->set_rules('judulsm', 'Judul surat', 'required|trim');
+        $this->form_validation->set_rules('asalsm', 'Asal surat', 'required|trim');
+        $this->form_validation->set_rules('tglmasuksm', 'Tanggal masuk surat', 'required|trim');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('layout/Header', $data);
+            //menampilkan halaman Sidebar.php pada folder view > View
+            $this->load->view('layout/Sidebar', $data);
+            $this->load->view('Surat/View_formsuratmasuk.php');
+            $this->load->view('layout/Footer');
+        } else {
+            $this->Surat_model->insert_sm();
+            redirect('Surat/SuratMasuk');
+        }
+    }
+
     // EDIT SURAT MASUK
-    public function edit_sm()
+    public function EditSuratMasuk()
     {
     }
 
     // DELETE SURAT MASUK
-    public function delete_sm($id)
+    public function DeleteSuratMasuk($id)
     {
-        $this->Surat_model->delete($id);
+        $this->Surat_model->delete_sm($id);
         redirect("Surat/SuratMasuk");
     }
 }

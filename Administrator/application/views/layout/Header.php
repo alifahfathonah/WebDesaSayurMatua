@@ -17,6 +17,8 @@
     <link href="<?= base_url(); ?>assets/dist/css/pages/ribbon-page.css" rel="stylesheet">
     <!-- toast CSS -->
     <link href="<?= base_url(); ?>assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- dropfyi -->
+    <link rel="stylesheet" href="../assets/node_modules/dropify/dist/css/dropify.min.css">
     <!-- page css -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
