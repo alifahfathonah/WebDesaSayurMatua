@@ -40,7 +40,7 @@
 <!-- footer -->
 <!-- ============================================================== -->
 <footer class="footer">
-    © 2018 Eliteadmin by themedesigner.in
+    © <?= date('Y'); ?> Project Akhir Mata Kuliah Bengkel Framework | Andra Hotmartua Al Hafiz
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->

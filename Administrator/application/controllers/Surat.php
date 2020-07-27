@@ -104,6 +104,8 @@ class Surat extends CI_Controller
 
     public function DownloadSuratMasuk($filename)
     {
-        force_download(base_url() . 'assets/Surat/SuratMasuk/' . $filename, NULL);
+
+
+        force_download('assets/Surat/SuratMasuk/' . $filename, NULL);
     }
 }
