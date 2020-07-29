@@ -1,25 +1,33 @@
-<section class="content">
+<div class="page-wrapper" style="min-height: 618px;">
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>BLANK PAGE</h2>
-        </div>
-        <div class="card">
-            <div class="header">
-                <h2>
-                    Basic Card Title <small>Description text here...</small>
-                </h2>
-                <ul class="header-dropdown m-r--5">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons">more_vert</i>
-                        </a>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h4 class="text-themecolor">Beranda</h4>
+            </div>
 
-                    </li>
-                </ul>
-            </div>
-            <div class="body">
-                Kepala Desa
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" id="1">SELAMAT DATANG, <?= $admin['admin_nama']; ?></h4>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->

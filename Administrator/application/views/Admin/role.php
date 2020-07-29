@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-7 align-self-center text-right">
                 <div class="d-flex justify-content-end align-items-center">
-                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#defaultModal"><i class="fa fa-plus-circle"></i> Tambah Role</button>
+                    <!-- <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#defaultModal"><i class="fa fa-plus-circle"></i> Tambah Role</button> -->
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
                                             <td><?= $r['role']; ?></td>
                                             <td class="text-nowrap">
                                                 <a href="<?= base_url('Admin/roleAccess/') . $r['role_id']; ?>" data-toggle="tooltip" data-original-title="Role"> <i class="fa fa-key text-inverse m-r-10"></i> </a>
-                                                <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                                <!-- <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a> -->
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
+<!-- <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -83,4 +83,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->

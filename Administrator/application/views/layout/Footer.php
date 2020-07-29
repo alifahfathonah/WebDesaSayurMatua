@@ -194,6 +194,14 @@
         $("#namaPekerjaan_edit").attr("value", job);
     })
 
+    $(".changeaccadmin").on("click", function() {
+        const id = $(this).data('id');
+        const role = $(this).data('role');
+
+        $("#idadmin_edit").attr("value", id);
+        $("#hakaksesadmin").attr("value", role);
+    })
+
     function tampilkanPreview(gambar, idpreview) {
         //                membuat objek gambar
         var gb = gambar.files;

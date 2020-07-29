@@ -55,7 +55,9 @@ class Pekerjaan extends CI_Controller
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
                 redirect('Pekerjaan');
             } else {
-                echo "w";
+                $this->session->set_flashdata('pesan', '<div class="alert alert-dangen alert-rounded mb-3">  Gagal!!! Maaf proses anda gagal, terdapat kesalahan sistem
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+                redirect('Pekerjaan');
             }
         }
     }

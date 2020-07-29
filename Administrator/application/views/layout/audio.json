@@ -1,0 +1,293 @@
+{
+    "result_index": 0,
+    "results": [
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "tofu exercise six ",
+                    "confidence": 0.73
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "in this exercise listen carefully to the short conversation and question in the recording and then choose the best answer to the question ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "you should be particularly careful of who is doing what ",
+                    "confidence": 1
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number one ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "the passenger arrived in a taxi yes and then she had the taxi driver wait at the corner ",
+                    "confidence": 0.93
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the woman mean ",
+                    "confidence": 0.97
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number two ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "did you go to the concert last night yes it was great and I got to hear Jane play the harp ",
+                    "confidence": 0.91
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the woman mean ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number three ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "the children like the new babysitter not really because she made them go to bed early ",
+                    "confidence": 0.92
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the man mean ",
+                    "confidence": 1
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number four ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "why is that man throwing the ball so carefully he is tossing the ball to his young son ",
+                    "confidence": 0.95
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the woman say about the father and son ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number five ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "did the professor tell her students about the lecture this evening yes she directed her students to attend it ",
+                    "confidence": 0.92
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the woman mean ",
+                    "confidence": 1
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number six I cannot find the clerk ",
+                    "confidence": 0.79
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "the floor manager sent him back to the supply room ",
+                    "confidence": 0.86
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what happened according to the man ",
+                    "confidence": 0.89
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number seven ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "will the students be able to get hold of the books that they need the library and had them reserve the books for two days ",
+                    "confidence": 0.86
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the man mean ",
+                    "confidence": 1
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number eight ",
+                    "confidence": 0.98
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "where elections held last night as scheduled yes and the board elected Tony chairman for another year ",
+                    "confidence": 0.94
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the woman mean ",
+                    "confidence": 1
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number nine at the trial the defendant was found guilty yes the judge called the defendant a murderer ",
+                    "confidence": 0.97
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the man mean ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "number ten ",
+                    "confidence": 0.99
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "have the names of the new committee members been announced congratulations you've been appointed to serve on the committee ",
+                    "confidence": 0.97
+                }
+            ]
+        },
+        {
+            "final": true,
+            "alternatives": [
+                {
+                    "transcript": "what does the man mean ",
+                    "confidence": 1
+                }
+            ]
+        }
+    ]
+}

@@ -104,7 +104,7 @@
                                 </div>
                                 <label for="tgllahir" class="col-1 col-form-label">Tanggal Lahir</label>
                                 <div class="col-4">
-                                    <input class="form-control" type="date" name="tgllahir" id="tgllahir">
+                                    <input class="form-control" type="date" name="tgllahir" id="tgllahir" value="<?= $warga->TglLahir; ?>">
                                 </div>
                             </div>
 
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="pendidikan" class="col-2 col-form-label">Pendidikan terakhir <?= $warga->Pekerjaan; ?></label>
+                                <label for="pendidikan" class="col-2 col-form-label">Pendidikan terakhir</label>
                                 <div class="col-10">
                                     <?php
                                     echo comboboxmanual('pendidikan', 'pendidikan', $job, $job, $warga->PendidikanTerakhir); ?>
@@ -127,7 +127,7 @@
 
                             <div class="form-group row justify-content-center">
                                 <div class="col-lg-2">
-                                    <button type="submit" class="btn btn-block btn-lg btn-info">Tambah data</button>
+                                    <button type="submit" class="btn btn-block btn-lg btn-info">Ubah data</button>
                                 </div>
 
                             </div>

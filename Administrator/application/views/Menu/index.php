@@ -53,7 +53,7 @@
                                                 <a href="#">
                                                     <button type="button" class="btn btn-info btn-circle"><i class="fa fa-edit" alt="EDIT"></i></button>
                                                 </a>
-                                                <a href="#">
+                                                <a href="<?= base_url('Menu/deletemenu/') . $m['id']; ?>">
                                                     <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
                                                 </a>
                                             </td>

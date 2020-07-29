@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         cekaccess();
         $this->load->model('Warga_model');
+        $this->load->model('User_model');
         // $this->load->library('form_validation');
         // $this->load->helper('my_function_helper');
     }
@@ -109,6 +110,46 @@ class Admin extends CI_Controller
         $this->load->view('layout/Footer');
     }
 
+    public function listadmin()
+    {
+        $list = $this->User_model->selectAll();
+
+        $data = array(
+            'list' => $list,
+            'admin' => $this->dataadmin(),
+            'judul' => "Daftar Penduduk"
+
+        );
+        // var_dump($data);
+        //menampilkan halaman Header.php pada folder view > View
+        $this->load->view('layout/Header', $data);
+        //menampilkan halaman Sidebar.php pada folder view > View
+        $this->load->view('layout/Sidebar', $data);
+        //menampilkan halaman Sidebar.php pada folder view > Admin
+        $this->load->view('Admin/View_list', $data);
+        //menampilkan halaman Footer.php pada folder view > View
+        $this->load->view('layout/Footer');
+    }
+    public function deleteuser($id)
+    {
+        $this->User_model->deleteuser($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3"> 
+           Admin telah di hapus                     
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+        redirect('Admin/listadmin');
+    }
+
+    public function changeaccessadmin()
+    {
+
+
+        $this->User_model->updateakses($this->input->post("idadmin_edit", true));
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! Anda telah mengubah daftar pekerjaan
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+        redirect('Admin/listadmin');
+        // }
+    }
+
     public function delete($id)
     {
         $this->Warga_model->delete($id);
@@ -178,10 +219,25 @@ class Admin extends CI_Controller
 
         );
 
-        $this->load->view('layout/Header', $data);
-        //menampilkan halaman Sidebar.php pada folder view > View
-        $this->load->view('layout/Sidebar', $data);
-        $this->load->view('Warga/View_editwarga', $data);
-        $this->load->view('layout/Footer');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|numeric');
+        $this->form_validation->set_rules('nkk', 'NKK', 'required|numeric');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('agama', 'Agama', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('tmptlahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tgllahir', 'Tangga Lahir', 'required');
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
+        $this->form_validation->set_rules('pendidikan', 'Pendidikan', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->load->view('layout/Header', $data);
+            //menampilkan halaman Sidebar.php pada folder view > View
+            $this->load->view('layout/Sidebar', $data);
+            $this->load->view('Warga/View_editwarga', $data);
+            $this->load->view('layout/Footer');
+        } else {
+        }
     }
 }

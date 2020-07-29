@@ -59,11 +59,11 @@
                                             <td><?= $m['icon']; ?></td>
                                             <td class="text-center"><?= $m['is_active']; ?></td>
                                             <td class="text-nowrap text-center">
-                                                <a href="#">
+                                                <a href="<?= base_url('Menu/editsubmenu/') . $m['id']; ?>">
                                                     <button type="button" class="btn btn-info btn-circle"><i class="fa fa-edit" alt="EDIT"></i></button>
                                                 </a>
-                                                <a href="#">
-                                                    <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
+                                                <a href="<?= base_url('Menu/deletesubmenu/') . $m['id']; ?>">
+                                                    <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash" alt="Hapus"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
