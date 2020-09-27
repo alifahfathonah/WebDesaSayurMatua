@@ -9,6 +9,7 @@ class Admin extends CI_Controller
         cekaccess();
         $this->load->model('Warga_model');
         $this->load->model('User_model');
+        $this->load->model('Surat_model');
         // $this->load->library('form_validation');
         // $this->load->helper('my_function_helper');
     }
@@ -202,7 +203,7 @@ class Admin extends CI_Controller
             $password = $this->input->post("password");
             $data_inputan = array('nama_user' => $username, 'email_user' => $email, 'password' => $password);
 
-            $this->Warga_model->update_user($data_inputan, $id_user);
+            $this->Warga_model->update_warga($data_inputan, $id_user);
             redirect('/Admin');
         }
     }
@@ -239,5 +240,75 @@ class Admin extends CI_Controller
             $this->load->view('layout/Footer');
         } else {
         }
+    }
+
+
+    public function listrequestktp()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_request_ktp');
+        $this->db->join('warga', 'tb_request_ktp.NIK=warga.NIK');
+        $this->db->where('tb_request_ktp.status',  0);
+        // $list = $this->db->get_where("tb_request_ktp", ["status" => 0])->result_array();
+        $list = $this->db->get()->result_array();
+        // var_dump($list);
+        // die();
+        $data = array(
+            'admin' => $this->dataadmin(),
+            'list' => $list,
+            'judul' => 'Request KTP',
+
+
+        );
+        $this->load->view('layout/Header', $data);
+        //menampilkan halaman Sidebar.php pada folder view > View
+        $this->load->view('layout/Sidebar', $data);
+        $this->load->view('Admin/listktp', $data);
+        $this->load->view('layout/Footer');
+    }
+    function autokode()
+    {
+        $dariDB = $this->Surat_model->cekkodeSuratKTP();
+        // var_dump($dariDB->nomorsurat);
+        if (isset($dariDB->nomorsurat)) {
+            $nourut = substr($dariDB->nomorsurat, 0, 4);
+        } else {
+            $nourut = 0;
+        }
+        // die();
+
+        // echo  $nourut;
+        $autokode = $nourut + 1;
+        // echo  $autokode;
+        // die();
+        // die();
+        return $autokode;
+    }
+
+    public function approvektp($id)
+    {
+
+        // echo sprintf("%04s", $this->autokode()) . '/R.KTP/' . $id . "/" . date('Y');
+        // die();
+        $nomorsurat        = sprintf("%04s", $this->autokode()) . '/R.KTP/' . $id . "/" . date('Y');
+        $data = array(
+            'id_request' => $id,
+            'nomorsurat' => $nomorsurat
+
+        );
+        // var_dump($data);
+        // die();
+
+        // $this->db->insert('tb_surat_ktp', $data);
+
+        $this->db->set('status', 1);
+        $this->db->set('tgl_approve', date('Y-m-d'));
+        $this->db->set('tgl_habismasa', date('Y-m-d', mktime(date('H'), date('i'), date('s'), date('m') + 1, date('d'), date('Y'))));
+        $this->db->where('id_request', $id);
+        $this->db->update('tb_request_ktp');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-rounded mb-3">  Berhasil!!! telah di approve
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+        redirect('Admin/listrequestktp');
     }
 }

@@ -71,6 +71,7 @@
 <script src="<?= base_url(); ?>assets/node_modules/datatables/jquery.dataTables.min.js"></script>
 <!--jQuery file upload-->
 <script src="<?= base_url(); ?>assets/node_modules/dropify/dist/js/dropify.min.js"></script>
+<script src="<?= base_url(); ?>assets/dist/js/pages/jquery.PrintArea.js" type="text/JavaScript"></script>
 
 <!-- start - This is for export functionality only -->
 <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
@@ -152,6 +153,8 @@
                 }
             });
 
+
+
             // Used events
             var drEvent = $('#input-file-now').dropify();
 
@@ -230,6 +233,17 @@
             }
         }
     }
+    $(document).ready(function() {
+        $("#print").click(function() {
+            var mode = 'iframe'; //popup
+            var close = mode == "popup";
+            var options = {
+                mode: mode,
+                popClose: close
+            };
+            $("div.printableArea").printArea(options);
+        });
+    });
 </script>
 </body>
 

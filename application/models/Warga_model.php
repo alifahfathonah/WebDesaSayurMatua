@@ -47,9 +47,9 @@ class Warga_model extends CI_Model
         return $this->db->get('warga')->row();
     }
 
-    public function update_user($data, $NIK)
+    public function update_warga($data, $NIK)
     {
         $this->db->where('NIK', $NIK);
-        $this->db->update('warga', $data);
+        return $this->db->update('warga', $data);
     }
 }

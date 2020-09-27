@@ -11,6 +11,13 @@ class Surat_model extends CI_Model
         return $hasil;
     }
 
+    public function cekkodeSuratKTP()
+    {
+        $query = $this->db->query("SELECT MAX(nomorsurat) as suratmasuk_id from tb_surat_ktp");
+        $hasil = $query->row();
+        return $hasil;
+    }
+
     public function selectAll_sm()
     {
         return $this->db->get('tb_suratmasuk')->result();

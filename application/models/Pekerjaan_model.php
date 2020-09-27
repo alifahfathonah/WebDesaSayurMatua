@@ -33,7 +33,7 @@ class Pekerjaan_model extends CI_Model
     {
         $idpekerjaan = $id;
         $data = [
-            'role_id' =>   $this->input->post("namaPekerjaan_edit", true),
+            'pekerjaan_nama' =>   $this->input->post("namaPekerjaan_edit", true),
         ];
         // return $idpekerjaan;
         $this->db->where('pekerjaan_id', $id);
